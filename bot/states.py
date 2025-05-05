@@ -1,28 +1,35 @@
 from aiogram.fsm.state import State, StatesGroup
 
-
 class StepByStepStates(StatesGroup):
-    level1 = State()
-    level2 = State()
-    level3 = State()
-    level4 = State()
-    level5 = State()
+    start = State()
+    main = State()
+    choice_meal=State()
+    settings = State()
+    back_setting = State()
+    back_main = State()
 
-class DeveloperState(StatesGroup):
-    name = State()
-    contact = State()
-    occupation = State()
+class UserState(StatesGroup):
     chat_id=State()
+    fullname = State()
+    phone_number = State()
 
-class CustomerState(StatesGroup):
-    name = State()
-    contact = State()
+class MealState(StatesGroup):
+    name=State()
+    price=State()
+    count=State()
+
+class SalatState(StatesGroup):
+    name=State()
+    price=State()
+    count=State()
+
+class Fast_FoodState(StatesGroup):
+    name=State()
+    price=State()
+    count=State()
+
+class OrderState(StatesGroup):
     chat_id=State()
-
-class ProjectState(StatesGroup):
-    name = State()
-    description = State()
-    price = State()
-    deadline = State()
-    occupation = State()
-    tz = State()
+    name=State()
+    total_price=State()
+    count=State()

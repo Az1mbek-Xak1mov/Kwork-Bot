@@ -1,0 +1,30 @@
+version: '2.35.1'
+
+
+services:
+  pg_service:
+    image: postgres:alpine
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 1
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+
+  bot:
+    build: .
+    image: tg_bot:latest
+    container_name: tg_con
+    restart: always
+    command: python3 main.py
+    depends_on:
+      - pg_service
+
+
+volumes:
+  pgdata:
+
+

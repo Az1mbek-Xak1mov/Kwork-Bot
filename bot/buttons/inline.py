@@ -9,9 +9,9 @@ def make_inline_btn(btns, sizes):
     builder.adjust(*sizes)
     return builder.as_markup()
 
-def make_inline_btn_confirm(btns, sizes,chat_id):
+def make_inline_back_menu(btns, sizes,back):
     builder = InlineKeyboardBuilder()
     for text in btns:
-        builder.add(InlineKeyboardButton(text=text, callback_data=f"{text}_{str(chat_id)}"))  # important!
+        builder.add(InlineKeyboardButton(text=text, callback_data=f"{text}_{back}"))  # important!
     builder.adjust(*sizes)
     return builder.as_markup()
